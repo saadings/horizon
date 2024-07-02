@@ -1,0 +1,3 @@
+interface MobileNavBarProps {
+  user: User;
+}
