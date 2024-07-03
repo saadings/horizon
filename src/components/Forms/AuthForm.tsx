@@ -17,6 +17,7 @@ import { signIn, signUp } from "@/lib/actions/userActions";
 import { authFormSchema } from "@/lib/zodSchemas";
 import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
+import PlaidLink from "../PlaidLink";
 
 const AuthForm = ({ type }: AuthFormProps) => {
   const { toast } = useToast();
@@ -45,11 +46,20 @@ const AuthForm = ({ type }: AuthFormProps) => {
     // ✅ This will be type-safe and validated.
     setIsLoading(true);
     try {
-      console.log(data);
-
       if (type === AuthFormType.SIGN_UP) {
-        // handle sign up
-        const newUser = await signUp(data);
+        const userData = {
+          email: data.email,
+          password: data.password,
+          firstName: data.firstName!,
+          lastName: data.lastName!,
+          address1: data.address1!,
+          city: data.city!,
+          state: data.state!,
+          postalCode: data.postalCode!,
+          dateOfBirth: data.dateOfBirth!,
+          ssn: data.ssn!,
+        };
+        const newUser = await signUp(userData);
         setUser(newUser);
       }
 
@@ -103,7 +113,10 @@ const AuthForm = ({ type }: AuthFormProps) => {
       </header>
 
       {user ? (
-        <div className="flex flex-col gap-4">{/* Plaid Link */}</div>
+        <div className="flex flex-col gap-4">
+          {/* Plaid Link */}
+          <PlaidLink user={user} variant="primary" />
+        </div>
       ) : (
         <>
           <Form {...form}>
