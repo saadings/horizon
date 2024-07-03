@@ -3,6 +3,11 @@
 import { AuthFormType } from "@/enums/authForm";
 import { z } from "zod";
 
+const oneDigit = new RegExp("(?=.*\\d)");
+const oneLowerCase = new RegExp("(?=.*[a-z])");
+const oneUpperCase = new RegExp("(?=.*[A-Z])");
+const oneSpecialCharacter = new RegExp("(?=.*[!@#$%^&*.])");
+
 export const authFormSchema = (type: AuthFormType) =>
   z.object({
     // sign up
@@ -33,5 +38,21 @@ export const authFormSchema = (type: AuthFormType) =>
     // both
 
     email: z.string().email(),
-    password: z.string().min(8),
+    password: z
+      .string()
+      .min(6, {
+        message: "Password must be at least six characters long",
+      })
+      .regex(oneDigit, {
+        message: "Password must include at least one number",
+      })
+      .regex(oneLowerCase, {
+        message: "Password must include at least one lowercase letter",
+      })
+      .regex(oneUpperCase, {
+        message: "Password must include at least one uppercase letter",
+      })
+      .regex(oneSpecialCharacter, {
+        message: "Password must include at least one special character",
+      }),
   });

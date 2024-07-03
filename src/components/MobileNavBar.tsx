@@ -13,6 +13,8 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Footer from "./Footer";
+import { FooterType } from "@/enums/footer";
 
 const MobileNavBar = ({ user }: MobileNavBarProps) => {
   const pathname = usePathname();
@@ -94,7 +96,7 @@ const MobileNavBar = ({ user }: MobileNavBarProps) => {
                 USER
               </nav>
             </SheetClose>
-            FOOTER
+            <Footer user={user} type={FooterType.MOBILE} />
           </div>
         </SheetContent>
       </Sheet>

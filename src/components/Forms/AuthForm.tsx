@@ -13,10 +13,10 @@ import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
 import { useToast } from "@/components/ui/use-toast";
 
+import { signIn, signUp } from "@/lib/actions/userActions";
 import { authFormSchema } from "@/lib/zodSchemas";
 import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { signIn, signUp } from "@/lib/actions/userActions";
 
 const AuthForm = ({ type }: AuthFormProps) => {
   const { toast } = useToast();
@@ -37,6 +37,7 @@ const AuthForm = ({ type }: AuthFormProps) => {
       postalCode: "",
       ssn: "",
       state: "",
+      city: "",
     },
   });
 
@@ -48,16 +49,16 @@ const AuthForm = ({ type }: AuthFormProps) => {
 
       if (type === AuthFormType.SIGN_UP) {
         // handle sign up
-        // const newUser = await signUp(data);
-        // setUser(newUser);
+        const newUser = await signUp(data);
+        setUser(newUser);
       }
 
       if (type === AuthFormType.SIGN_IN) {
-        // const response = await signIn({
-        //   email: data.email,
-        //   password: data.password,
-        // });
-        // if (response) router.push("/dashboard");
+        const response = await signIn({
+          email: data.email,
+          password: data.password,
+        });
+        if (response) router.push("/");
       }
     } catch (error) {
       toast({
