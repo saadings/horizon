@@ -1,0 +1,3 @@
+interface AnimatedCounterProps {
+  amount: number;
+}

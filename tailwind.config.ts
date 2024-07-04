@@ -19,6 +19,9 @@ const config = {
       },
     },
     extend: {
+      screens: {
+        "c-lg": "1279px",
+      },
       colors: {
         fill: {
           1: "rgba(255, 255, 255, 0.10)",
@@ -58,6 +61,7 @@ const config = {
         black: {
           1: "#00214F",
           2: "#344054",
+          3: "#121212",
         },
         gray: {
           25: "#FCFCFD",

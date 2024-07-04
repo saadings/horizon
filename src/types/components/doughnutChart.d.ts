@@ -1,0 +1,3 @@
+interface DoughnutChartProps {
+  accounts: Account[];
+}
