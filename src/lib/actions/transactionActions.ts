@@ -28,7 +28,9 @@ export const createTransaction = async (
 
     return parseStringify(newTransaction);
   } catch (error) {
-    console.log(error);
+    throw new Error(
+      error instanceof Error ? error.message : "An Unknown Error Occurred",
+    );
   }
 };
 
@@ -60,6 +62,8 @@ export const getTransactionsByBankId = async ({
 
     return parseStringify(transactions);
   } catch (error) {
-    console.log(error);
+    throw new Error(
+      error instanceof Error ? error.message : "An Unknown Error Occurred",
+    );
   }
 };

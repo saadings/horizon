@@ -33,7 +33,9 @@ export const getUserInfo = async ({ userId }: GetUserInfoProps) => {
 
     return parseStringify(user.documents[0]);
   } catch (error) {
-    console.error(error);
+    throw new Error(
+      error instanceof Error ? error.message : "An Unknown Error Occurred",
+    );
   }
 };
 
@@ -53,7 +55,9 @@ export const signIn = async ({ email, password }: SignInProps) => {
 
     return parseStringify(user);
   } catch (error) {
-    console.error(error);
+    throw new Error(
+      error instanceof Error ? error.message : "An Unknown Error Occurred",
+    );
   }
 };
 
@@ -105,7 +109,9 @@ export const signUp = async ({ password, ...userData }: SignUpParams) => {
 
     return parseStringify(newUser);
   } catch (error) {
-    console.error(error);
+    throw new Error(
+      error instanceof Error ? error.message : "An Unknown Error Occurred",
+    );
   }
 };
 
@@ -153,7 +159,9 @@ export const createLinkToken = async (user: User) => {
       linkToken: response.data.link_token,
     });
   } catch (error) {
-    console.error(error);
+    throw new Error(
+      error instanceof Error ? error.message : "An Unknown Error Occurred",
+    );
   }
 };
 
@@ -267,7 +275,9 @@ export const getBanks = async ({ userId }: GetBanksProps) => {
 
     return parseStringify(banks.documents);
   } catch (error) {
-    console.error(error);
+    throw new Error(
+      error instanceof Error ? error.message : "An Unknown Error Occurred",
+    );
   }
 };
 
@@ -283,7 +293,9 @@ export const getBank = async ({ documentId }: GetBankProps) => {
 
     return parseStringify(bank.documents[0]);
   } catch (error) {
-    console.error(error);
+    throw new Error(
+      error instanceof Error ? error.message : "An Unknown Error Occurred",
+    );
   }
 };
 

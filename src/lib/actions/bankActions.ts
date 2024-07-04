@@ -69,6 +69,9 @@ export const getAccounts = async ({ userId }: GetAccountsProps) => {
     // };
   } catch (error) {
     console.error("An error occurred while getting the accounts:", error);
+    throw new Error(
+      error instanceof Error ? error.message : "An Unknown Error Occurred",
+    );
   }
 };
 
@@ -137,6 +140,9 @@ export const getAccount = async ({ appwriteItemId }: GetAccountProps) => {
     };
   } catch (error) {
     console.error("An error occurred while getting the account:", error);
+    throw new Error(
+      error instanceof Error ? error.message : "An Unknown Error Occurred",
+    );
   }
 };
 
@@ -155,6 +161,9 @@ export const getInstitution = async ({
     return parseStringify(intitution);
   } catch (error) {
     console.error("An error occurred while getting the accounts:", error);
+    throw new Error(
+      error instanceof Error ? error.message : "An Unknown Error Occurred",
+    );
   }
 };
 
@@ -193,6 +202,9 @@ export const getTransactions = async ({
     return parseStringify(transactions);
   } catch (error) {
     console.error("An error occurred while getting the accounts:", error);
+    throw new Error(
+      error instanceof Error ? error.message : "An Unknown Error Occurred",
+    );
   }
 };
 
@@ -233,6 +245,9 @@ export const createTransfer = async () => {
     console.error(
       "An error occurred while creating transfer authorization:",
       error,
+    );
+    throw new Error(
+      error instanceof Error ? error.message : "An Unknown Error Occurred",
     );
   }
 };

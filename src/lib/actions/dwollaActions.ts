@@ -36,6 +36,9 @@ export const createFundingSource = async (
       .then((res) => res.headers.get("location"));
   } catch (err) {
     console.error("Creating a Funding Source Failed: ", err);
+    throw new Error(
+      err instanceof Error ? err.message : "An Unknown Error Occurred",
+    );
   }
 };
 
@@ -48,6 +51,9 @@ export const createOnDemandAuthorization = async () => {
     return authLink;
   } catch (err) {
     console.error("Creating an On Demand Authorization Failed: ", err);
+    throw new Error(
+      err instanceof Error ? err.message : "An Unknown Error Occurred",
+    );
   }
 };
 
@@ -60,6 +66,9 @@ export const createDwollaCustomer = async (
       .then((res) => res.headers.get("location"));
   } catch (err) {
     console.error("Creating a Dwolla Customer Failed: ", err);
+    throw new Error(
+      err instanceof Error ? err.message : "An Unknown Error Occurred",
+    );
   }
 };
 
@@ -89,6 +98,9 @@ export const createTransfer = async ({
       .then((res) => res.headers.get("location"));
   } catch (err) {
     console.error("Transfer fund failed: ", err);
+    throw new Error(
+      err instanceof Error ? err.message : "An Unknown Error Occurred",
+    );
   }
 };
 
@@ -111,5 +123,8 @@ export const addFundingSource = async ({
     return await createFundingSource(fundingSourceOptions);
   } catch (err) {
     console.error("Transfer fund failed: ", err);
+    throw new Error(
+      err instanceof Error ? err.message : "An Unknown Error Occurred",
+    );
   }
 };
