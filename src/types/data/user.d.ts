@@ -1,4 +1,4 @@
-type User = {
+interface User {
   $id: string;
   email: string;
   userId: string;
@@ -13,4 +13,4 @@ type User = {
   postalCode: string;
   dateOfBirth: string;
   ssn: string;
-};
+}

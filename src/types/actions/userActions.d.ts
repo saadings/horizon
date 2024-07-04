@@ -27,5 +27,13 @@ interface CreateBankAccountProps {
   accountId: string;
   bankId: string;
   fundingSourceUrl: string;
-  sharableId: string;
+  shareableId: string;
+}
+
+interface GetUserInfoProps {
+  userId: string;
+}
+
+interface GetBankByAccountIdProps {
+  accountId: string;
 }
