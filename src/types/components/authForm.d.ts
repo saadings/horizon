@@ -1,0 +1,3 @@
+interface AuthFormProps {
+  type: AuthFormType;
+}
