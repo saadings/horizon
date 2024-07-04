@@ -8,11 +8,7 @@ import React from "react";
 const MyBanks = async () => {
   const loggedIn = await getLoggedInUser();
 
-  if (!loggedIn) {
-    redirect("/sign-in");
-  }
-
-  const accounts = await getAccounts({ userId: loggedIn?.$id });
+  const accounts = await getAccounts({ userId: loggedIn?.$id! });
 
   return (
     <section className="flex">

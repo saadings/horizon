@@ -8,11 +8,7 @@ import React from "react";
 const PaymentTransfer = async () => {
   const loggedIn = await getLoggedInUser();
 
-  if (!loggedIn) {
-    redirect("/sign-in");
-  }
-
-  const accounts = await getAccounts({ userId: loggedIn?.$id });
+  const accounts = await getAccounts({ userId: loggedIn?.$id! });
 
   const accountsData = accounts?.data;
 

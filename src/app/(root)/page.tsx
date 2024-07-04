@@ -5,18 +5,13 @@ import TotalBalanceBox from "@/components/TotalBalanceBox";
 import { HeaderType } from "@/enums/headerBox";
 import { getAccount, getAccounts } from "@/lib/actions/bankActions";
 import { getLoggedInUser } from "@/lib/actions/userActions";
-import { redirect } from "next/navigation";
 
 const Home = async ({ searchParams: { id, page } }: SearchParamProps) => {
   const currentPage = Number(page as string) || 1;
 
   const loggedIn = await getLoggedInUser();
 
-  if (!loggedIn) {
-    redirect("/sign-in");
-  }
-
-  const accounts = await getAccounts({ userId: loggedIn?.$id });
+  const accounts = await getAccounts({ userId: loggedIn?.$id! });
 
   if (!accounts) return;
 
@@ -52,7 +47,7 @@ const Home = async ({ searchParams: { id, page } }: SearchParamProps) => {
         />
       </div>
       <RightSideBar
-        user={loggedIn}
+        user={loggedIn!}
         transactions={account?.transactions || []}
         banks={accountsData?.slice(0, 2)}
       />

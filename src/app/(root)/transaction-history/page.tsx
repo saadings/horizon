@@ -14,9 +14,7 @@ const TransactionHistory = async ({
 
   const loggedIn = await getLoggedInUser();
 
-  if (!loggedIn) redirect("/sign-in");
-
-  const accounts = await getAccounts({ userId: loggedIn.$id });
+  const accounts = await getAccounts({ userId: loggedIn?.$id! });
 
   if (!accounts) return;
 
@@ -25,7 +23,7 @@ const TransactionHistory = async ({
 
   const account = await getAccount({ appwriteItemId });
 
-  if (!account) return <div>No Account Found</div>;
+  if (!account) return;
 
   const rowsPerPage = 10;
 
