@@ -20,8 +20,5 @@ namespace NodeJS {
     DWOLLA_SECRET: string;
     DWOLLA_BASE_URL: string;
     DWOLLA_ENV: string;
-
-    DUMMY_ACCESS_TOKEN: string;
-    DUMMY_ACCOUNT_ID: string;
   }
 }
