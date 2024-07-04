@@ -7,7 +7,7 @@ const TotalBalanceBox = ({
   totalCurrentBalance,
 }: TotalBalanceBoxProps) => {
   return (
-    <section className="total-balance">
+    <section className="total-balance dark:bg-slate-800">
       <div className="total-balance-chart">
         {/* Doughnut Chart */}
 

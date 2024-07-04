@@ -55,8 +55,8 @@ const TransactionHistory = async ({
               {account?.data.name}
             </h2>
             <p className="text-14 text-blue-25">{account?.data.officialName}</p>
-            <p className="tet-14 font-semibold tracking-[1.1px] text-white">
-              ◍◍◍◍ ◍◍◍◍ ◍◍◍◍{" "}
+            <p className="text-14 font-semibold tracking-[1.1px] text-white">
+              •••• •••• ••••{" "}
               <span className="text-16">{account?.data.mask || 1234}</span>
             </p>
           </div>

@@ -1,3 +1,5 @@
+type AccountTypes = "depository" | "credit" | "loan " | "investment" | "other";
+
 interface Account {
   id: string;
   availableBalance: number;

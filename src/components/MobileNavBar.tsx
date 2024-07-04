@@ -15,6 +15,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Footer from "./Footer";
 import { FooterType } from "@/enums/footer";
+import PlaidLink from "./PlaidLink";
+import { PlaidLinkVariant } from "@/enums/plaidLink";
 
 const MobileNavBar = ({ user }: MobileNavBarProps) => {
   const pathname = usePathname();
@@ -93,7 +95,8 @@ const MobileNavBar = ({ user }: MobileNavBarProps) => {
                     </SheetClose>
                   );
                 })}
-                USER
+
+                <PlaidLink user={user} variant={PlaidLinkVariant.GHOST} />
               </nav>
             </SheetClose>
             <Footer user={user} type={FooterType.MOBILE} />

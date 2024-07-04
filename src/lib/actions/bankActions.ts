@@ -95,7 +95,7 @@ export const getAccount = async ({ appwriteItemId }: GetAccountProps) => {
         name: transferData.name!,
         amount: transferData.amount!,
         date: transferData.$createdAt,
-        paymentChannel: transferData.channel,
+        paymentChannel: transferData.paymentChannel!,
         category: transferData.category,
         type: transferData.senderBankId === bank.$id ? "debit" : "credit",
       }),
@@ -199,9 +199,9 @@ export const getTransactions = async ({
 // Create Transfer
 export const createTransfer = async () => {
   const transferAuthRequest: TransferAuthorizationCreateRequest = {
-    access_token: "access-sandbox-cddd20c1-5ba8-4193-89f9-3a0b91034c25",
-    account_id: "Zl8GWV1jqdTgjoKnxQn1HBxxVBanm5FxZpnQk",
-    funding_account_id: "442d857f-fe69-4de2-a550-0c19dc4af467",
+    access_token: process.env.DUMMY_ACCESS_TOKEN,
+    account_id: process.env.DUMMY_ACCOUNT_ID,
+    funding_account_id: process.env.DUMMY_FUNDING_ACCOUNT_ID,
     type: "credit" as TransferType,
     network: "ach" as TransferNetwork,
     amount: "10.00",
@@ -217,8 +217,8 @@ export const createTransfer = async () => {
     const authorizationId = transferAuthResponse.data.authorization.id;
 
     const transferCreateRequest: TransferCreateRequest = {
-      access_token: "access-sandbox-cddd20c1-5ba8-4193-89f9-3a0b91034c25",
-      account_id: "Zl8GWV1jqdTgjoKnxQn1HBxxVBanm5FxZpnQk",
+      access_token: process.env.DUMMY_ACCESS_TOKEN,
+      account_id: process.env.DUMMY_ACCOUNT_ID,
       description: "payment",
       authorization_id: authorizationId,
     };
