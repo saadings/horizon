@@ -1,10 +1,5 @@
 /* eslint-disable no-unused-vars */
 
-declare type SearchParamProps = {
-  params: { [key: string]: string };
-  searchParams: { [key: string]: string | string[] | undefined };
-};
-
 // ========================================
 
 declare type LoginUser = {
@@ -30,7 +25,7 @@ declare type Account = {
   type: string;
   subtype: string;
   appwriteItemId: string;
-  sharableId: string;
+  shareableId: string;
 };
 
 declare type Transaction = {
@@ -52,16 +47,6 @@ declare type Transaction = {
   receiverBankId: string;
 };
 
-declare type Bank = {
-  $id: string;
-  accountId: string;
-  bankId: string;
-  accessToken: string;
-  fundingSourceUrl: string;
-  userId: string;
-  sharableId: string;
-};
-
 declare type AccountTypes =
   | "depository"
   | "credit"
@@ -70,12 +55,6 @@ declare type AccountTypes =
   | "other";
 
 declare type Category = "Food and Drink" | "Travel" | "Transfer";
-
-declare type CategoryCount = {
-  name: string;
-  count: number;
-  totalCount: number;
-};
 
 declare type Receiver = {
   firstName: string;
@@ -125,28 +104,9 @@ declare interface BankTabItemProps {
   appwriteItemId?: string;
 }
 
-declare interface RecentTransactionsProps {
-  accounts: Account[];
-  transactions: Transaction[];
-  appwriteItemId: string;
-  page: number;
-}
-
 declare interface TransactionHistoryTableProps {
   transactions: Transaction[];
   page: number;
-}
-
-declare interface CategoryBadgeProps {
-  category: string;
-}
-
-declare interface TransactionTableProps {
-  transactions: Transaction[];
-}
-
-declare interface CategoryProps {
-  category: CategoryCount;
 }
 
 declare interface PaymentTransferFormProps {
@@ -154,48 +114,3 @@ declare interface PaymentTransferFormProps {
 }
 
 // Actions
-declare interface getAccountsProps {
-  userId: string;
-}
-
-declare interface getAccountProps {
-  appwriteItemId: string;
-}
-
-declare interface getInstitutionProps {
-  institutionId: string;
-}
-
-declare interface getTransactionsProps {
-  accessToken: string;
-}
-
-declare interface CreateTransactionProps {
-  name: string;
-  amount: string;
-  senderId: string;
-  senderBankId: string;
-  receiverId: string;
-  receiverBankId: string;
-  email: string;
-}
-
-declare interface getTransactionsByBankIdProps {
-  bankId: string;
-}
-
-declare interface getUserInfoProps {
-  userId: string;
-}
-
-declare interface getBanksProps {
-  userId: string;
-}
-
-declare interface getBankProps {
-  documentId: string;
-}
-
-declare interface getBankByAccountIdProps {
-  accountId: string;
-}
