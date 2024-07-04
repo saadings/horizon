@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 import type { Metadata } from "next";
