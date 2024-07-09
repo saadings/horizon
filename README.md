@@ -2,9 +2,9 @@
 <div align="center">
   <br />
     <a href="https://horizon-app.saadings.me" target="_blank">
-      <img src="https://horizon-app.saadings.me/icons/logo.svg" alt="Project Banner">
+      <img src="https://horizon-app.saadings.me/icons/logo.svg" alt="Project Banner" width="150px" height="150px">
     </a>
-    <p>Horizon</p>
+    <h1>Horizon</p>
   <br />
   
   <div>
@@ -77,7 +77,7 @@ Make sure you have the following installed on your machine:
 
 ```bash
 git clone https://github.com/saadings/horizon.git
-cd banking
+cd horizon
 ```
 
 **Installation**
