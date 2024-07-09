@@ -1,7 +1,7 @@
 
 <div align="center">
   <br />
-    <a href="https://youtu.be/PuOVqP_cjkE?feature=shared" target="_blank">
+    <a href="https://horizon-app.saadings.me" target="_blank">
       <img src="https://horizon-app.saadings.me/icons/logo.svg" alt="Project Banner">
     </a>
     <p>Horizon</p>
