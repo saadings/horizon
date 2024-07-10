@@ -4,7 +4,7 @@ import { NextRequest } from "next/server";
 // This function can be marked `async` if using `await` inside
 export function middleware(request: NextRequest) {
   if (!request.cookies.get("appwrite-session")?.value) {
-    return NextResponse.rewrite(new URL("/sign-in", request.url));
+    return NextResponse.redirect(new URL("/sign-in", request.url));
   }
 
   return NextResponse.next();
