@@ -1,7 +1,7 @@
+import { countTransactionCategories } from "@/lib/utils";
 import { Plus } from "lucide-react";
 import Link from "next/link";
 import BankCard from "../BankCard";
-import { countTransactionCategories } from "@/lib/utils";
 import Category from "../Category";
 
 const RightSideBar = ({ user, transactions, banks }: RightSidebarProps) => {

@@ -1,6 +1,5 @@
 import AuthForm from "@/components/Forms/AuthForm";
 import { AuthFormType } from "@/enums/authForm";
-import { getLoggedInUser } from "@/lib/actions/userActions";
 
 const SignUp = async () => {
   return (

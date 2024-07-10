@@ -1,10 +1,12 @@
 import HeaderBox from "@/components/HeaderBox";
+import LoadingSkeleton from "@/components/LoadingSkeleton";
 import RecentTransactions from "@/components/RecentTransactions";
 import RightSideBar from "@/components/SideBars/RightSideBar";
 import TotalBalanceBox from "@/components/TotalBalanceBox";
 import { HeaderType } from "@/enums/headerBox";
 import { getAccount, getAccounts } from "@/lib/actions/bankActions";
 import { getLoggedInUser } from "@/lib/actions/userActions";
+import { Suspense } from "react";
 
 const Home = async ({ searchParams: { id, page } }: SearchParamProps) => {
   const currentPage = Number(page as string) || 1;
@@ -36,25 +38,30 @@ const Home = async ({ searchParams: { id, page } }: SearchParamProps) => {
             subtext="Access and manage your account and transactions efficiently."
           />
 
-          <TotalBalanceBox
-            accounts={accountsData}
-            totalBanks={accounts?.totalBanks || 0}
-            totalCurrentBalance={accounts?.totalCurrentBalance || 0}
-          />
+          <Suspense fallback={<LoadingSkeleton />}>
+            <TotalBalanceBox
+              accounts={accountsData}
+              totalBanks={accounts?.totalBanks || 0}
+              totalCurrentBalance={accounts?.totalCurrentBalance || 0}
+            />
+          </Suspense>
         </header>
-
-        <RecentTransactions
-          accounts={accountsData}
-          transactions={account?.transactions || []}
-          appwriteItemId={appwriteItemId}
-          page={currentPage}
-        />
+        <Suspense fallback={<LoadingSkeleton />}>
+          <RecentTransactions
+            accounts={accountsData}
+            transactions={account?.transactions || []}
+            appwriteItemId={appwriteItemId}
+            page={currentPage}
+          />
+        </Suspense>
       </div>
-      <RightSideBar
-        user={loggedIn!}
-        transactions={account?.transactions || []}
-        banks={accountsData?.slice(0, 2)}
-      />
+      <Suspense fallback={<LoadingSkeleton />}>
+        <RightSideBar
+          user={loggedIn!}
+          transactions={account?.transactions || []}
+          banks={accountsData?.slice(0, 2)}
+        />
+      </Suspense>
     </section>
   );
 };

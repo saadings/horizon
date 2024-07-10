@@ -4,8 +4,6 @@ import TransactionTable from "@/components/TransactionTable";
 import { getAccount, getAccounts } from "@/lib/actions/bankActions";
 import { getLoggedInUser } from "@/lib/actions/userActions";
 import { formatAmount } from "@/lib/utils";
-import { redirect } from "next/navigation";
-import React from "react";
 
 const TransactionHistory = async ({
   searchParams: { id, page },

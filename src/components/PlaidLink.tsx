@@ -1,17 +1,17 @@
-import React, { useCallback, useEffect, useState } from "react";
-import { Button } from "./ui/button";
-import {
-  PlaidLinkOnSuccess,
-  PlaidLinkOptions,
-  usePlaidLink,
-} from "react-plaid-link";
-import { useRouter } from "next/navigation";
+import { PlaidLinkVariant } from "@/enums/plaidLink";
 import {
   createLinkToken,
   exchangePublicToken,
 } from "@/lib/actions/userActions";
 import Image from "next/image";
-import { PlaidLinkVariant } from "@/enums/plaidLink";
+import { useRouter } from "next/navigation";
+import { useCallback, useEffect, useState } from "react";
+import {
+  PlaidLinkOnSuccess,
+  PlaidLinkOptions,
+  usePlaidLink,
+} from "react-plaid-link";
+import { Button } from "./ui/button";
 
 const PlaidLink = ({ user, variant }: PlaidLinkProps) => {
   const router = useRouter();

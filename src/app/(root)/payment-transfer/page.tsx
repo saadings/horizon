@@ -2,8 +2,6 @@ import PaymentTransferForm from "@/components/Forms/PaymentTransferForm";
 import HeaderBox from "@/components/HeaderBox";
 import { getAccounts } from "@/lib/actions/bankActions";
 import { getLoggedInUser } from "@/lib/actions/userActions";
-import { redirect } from "next/navigation";
-import React from "react";
 
 const PaymentTransfer = async () => {
   const loggedIn = await getLoggedInUser();

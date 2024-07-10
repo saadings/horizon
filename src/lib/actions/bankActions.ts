@@ -12,8 +12,8 @@ import {
 import { plaidClient } from "../plaid";
 import { parseStringify } from "../utils";
 
-import { getBanks, getBank } from "./userActions";
 import { getTransactionsByBankId } from "./transactionActions";
+import { getBank, getBanks } from "./userActions";
 
 // Get multiple bank accounts
 export const getAccounts = async ({ userId }: GetAccountsProps) => {

@@ -47,6 +47,7 @@ const BankCard = ({ account, userName, showBalance }: CreditCardProps) => {
           height={190}
           alt="lines"
           className="absolute left-0 top-0"
+          priority
         />
       </Link>
 

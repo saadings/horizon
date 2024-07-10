@@ -1,10 +1,10 @@
 "use client";
 import {
-  Chart as ChartJS,
   ArcElement,
-  Tooltip,
-  Legend,
   ChartData,
+  Chart as ChartJS,
+  Legend,
+  Tooltip,
 } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 

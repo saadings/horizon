@@ -9,14 +9,14 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { sidebarLinks } from "@/constants";
+import { FooterType } from "@/enums/footer";
+import { PlaidLinkVariant } from "@/enums/plaidLink";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Footer from "./Footer";
-import { FooterType } from "@/enums/footer";
 import PlaidLink from "./PlaidLink";
-import { PlaidLinkVariant } from "@/enums/plaidLink";
 
 const MobileNavBar = ({ user }: MobileNavBarProps) => {
   const pathname = usePathname();
