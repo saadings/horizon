@@ -64,7 +64,7 @@ const PlaidLink = ({ user, variant }: PlaidLinkProps) => {
       {variant === PlaidLinkVariant.PRIMARY ? (
         <Button
           onClick={handleOpen}
-          disabled={!ready}
+          disabled={!ready || loading}
           className="plaidlink-primary"
         >
           {loading ? (
