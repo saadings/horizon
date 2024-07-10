@@ -1,4 +1,3 @@
-
 <div align="center">
   <br />
     <a href="https://horizon-app.saadings.me" target="_blank">
@@ -26,7 +25,7 @@
 
 ## <a name="introduction">🤖 Introduction</a>
 
-Built with Next.js, Horizon is a financial SaaS platform that connects to multiple bank accounts, displays transactions in real-time, allows users to transfer money to other platform users, and manages their finances altogether. 
+Built with Next.js, Horizon is a financial SaaS platform that connects to multiple bank accounts, displays transactions in real-time, allows users to transfer money to other platform users, and manages their finances altogether.
 
 ## <a name="tech-stack">⚙️ Tech Stack</a>
 
@@ -59,7 +58,7 @@ Built with Next.js, Horizon is a financial SaaS platform that connects to multip
 
 👉 **Responsiveness**: Ensures the application adapts seamlessly to various screen sizes and devices, providing a consistent user experience across desktop, tablet, and mobile platforms.
 
-and many more, including code architecture and reusability. 
+and many more, including code architecture and reusability.
 
 ## <a name="quick-start">🤸 Quick Start</a>
 

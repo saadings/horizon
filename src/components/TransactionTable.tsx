@@ -37,9 +37,17 @@ const CategoryBadge = ({ category }: CategoryBadgeProps) => {
   );
 };
 
-const TransactionTable = ({ transactions }: TransactionTableProps) => {
+const TransactionTable = ({
+  transactions,
+  className,
+}: TransactionTableProps) => {
   return (
-    <div className="overflow-hidden rounded-lg c-lg:w-[calc(100vw-723px)]">
+    <div
+      className={cn(
+        "overflow-hidden rounded-lg c-lg:w-[calc(100vw-723px)]",
+        className,
+      )}
+    >
       <Table>
         <TableHeader className="bg-[#f9fafb] dark:bg-slate-800">
           <TableRow className="font-bold dark:border-b-slate-500">

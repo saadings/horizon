@@ -14,6 +14,8 @@ const TransactionHistory = async ({
 
   const loggedIn = await getLoggedInUser();
 
+  if (!loggedIn) return;
+
   const accounts = await getAccounts({ userId: loggedIn?.$id! });
 
   if (!accounts) return;
@@ -68,7 +70,10 @@ const TransactionHistory = async ({
         </div>
 
         <section className="flex w-full flex-col gap-6">
-          <TransactionTable transactions={currentTransactions || []} />
+          <TransactionTable
+            transactions={currentTransactions || []}
+            className={"!w-full"}
+          />
           {totalPages > 1 && (
             <div className="my-4 w-full">
               <Pagination page={currentPage} totalPages={totalPages} />

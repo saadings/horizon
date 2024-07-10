@@ -11,6 +11,8 @@ const Home = async ({ searchParams: { id, page } }: SearchParamProps) => {
 
   const loggedIn = await getLoggedInUser();
 
+  if (!loggedIn) return;
+
   const accounts = await getAccounts({ userId: loggedIn?.$id! });
 
   if (!accounts) return;
@@ -20,6 +22,8 @@ const Home = async ({ searchParams: { id, page } }: SearchParamProps) => {
   const appwriteItemId = (id as string) || accountsData[0]?.appwriteItemId;
 
   const account = await getAccount({ appwriteItemId });
+
+  if (!account) return;
 
   return (
     <section className="home">

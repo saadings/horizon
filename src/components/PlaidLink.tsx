@@ -11,6 +11,7 @@ import {
   exchangePublicToken,
 } from "@/lib/actions/userActions";
 import Image from "next/image";
+import { PlaidLinkVariant } from "@/enums/plaidLink";
 
 const PlaidLink = ({ user, variant }: PlaidLinkProps) => {
   const router = useRouter();
@@ -36,7 +37,7 @@ const PlaidLink = ({ user, variant }: PlaidLinkProps) => {
 
       router.push("/");
     },
-    [user],
+    [user, router],
   );
 
   const config: PlaidLinkOptions = {
@@ -48,7 +49,7 @@ const PlaidLink = ({ user, variant }: PlaidLinkProps) => {
 
   return (
     <>
-      {variant === "primary" ? (
+      {variant === PlaidLinkVariant.PRIMARY ? (
         <Button
           onClick={() => open()}
           disabled={!ready}
@@ -56,7 +57,7 @@ const PlaidLink = ({ user, variant }: PlaidLinkProps) => {
         >
           Connect bank
         </Button>
-      ) : variant === "ghost" ? (
+      ) : variant === PlaidLinkVariant.GHOST ? (
         <Button
           onClick={() => open()}
           variant="ghost"
@@ -68,7 +69,7 @@ const PlaidLink = ({ user, variant }: PlaidLinkProps) => {
             width={24}
             height={24}
           />
-          <p className="hiddenl text-[16px] font-semibold text-black-2 xl:block">
+          <p className="text-[16px] font-semibold text-black-2 dark:text-gray-500 xl:block">
             Connect bank
           </p>
         </Button>
@@ -80,7 +81,9 @@ const PlaidLink = ({ user, variant }: PlaidLinkProps) => {
             width={24}
             height={24}
           />
-          <p className="text-[16px] font-semibold text-black-2">Connect bank</p>
+          <p className="text-[16px] font-semibold text-black-2 dark:text-gray-500 max-xl:hidden">
+            Connect bank
+          </p>
         </Button>
       )}
     </>

@@ -1,6 +1,6 @@
 "use server";
 
-import { ID, Query } from "node-appwrite";
+import { AppwriteException, ID, Query } from "node-appwrite";
 import { createAdminClient, createSessionClient } from "@/lib/appwrite";
 import { cookies } from "next/headers";
 import { encryptId, extractCustomerIdFromUrl, parseStringify } from "../utils";
@@ -75,14 +75,14 @@ export const signUp = async ({ password, ...userData }: SignUpParams) => {
       `${firstName} ${lastName}`,
     );
 
-    if (!newUserAccount) throw Error("Error creating user account");
+    if (!newUserAccount) throw new Error("Error creating user account");
 
     const dwollaCustomerUrl = await createDwollaCustomer({
       ...userData,
       type: "personal",
     });
 
-    if (!dwollaCustomerUrl) throw Error("Error creating Dwolla customer");
+    if (!dwollaCustomerUrl) throw new Error("Error creating Dwolla customer");
 
     const dwollaCustomerId = extractCustomerIdFromUrl(dwollaCustomerUrl);
 
@@ -235,7 +235,7 @@ export const exchangePublicToken = async ({
     });
 
     // If the funding source URL is not created, throw an error
-    if (!fundingSourceUrl) throw Error;
+    if (!fundingSourceUrl) throw new Error("Error creating funding source");
 
     // Create a bank account using the user ID, item ID, account ID, access token, funding source URL, and shareable ID
     const newBankAccount = await createBankAccount({
@@ -248,7 +248,7 @@ export const exchangePublicToken = async ({
     });
 
     // If the bank account is not created, throw an error
-    if (!newBankAccount) throw Error;
+    if (!newBankAccount) throw new Error("Error creating bank account");
 
     // Revalidate the path to reflect the changes
     revalidatePath("/");

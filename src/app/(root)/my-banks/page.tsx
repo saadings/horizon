@@ -2,13 +2,15 @@ import BankCard from "@/components/BankCard";
 import HeaderBox from "@/components/HeaderBox";
 import { getAccounts } from "@/lib/actions/bankActions";
 import { getLoggedInUser } from "@/lib/actions/userActions";
-import { redirect } from "next/navigation";
-import React from "react";
 
 const MyBanks = async () => {
   const loggedIn = await getLoggedInUser();
 
+  if (!loggedIn) return;
+
   const accounts = await getAccounts({ userId: loggedIn?.$id! });
+
+  if (!accounts) return;
 
   return (
     <section className="flex">
