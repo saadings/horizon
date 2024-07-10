@@ -138,7 +138,7 @@
   }
 
   .view-all-btn {
-    @apply text-14 rounded-lg border border-gray-300 px-4 py-2.5 font-semibold text-gray-700 dark:border-none dark:bg-slate-600 dark:text-white dark:hover:bg-slate-500;
+    @apply text-14 rounded-lg border border-gray-300 px-4 py-2.5 font-semibold text-gray-700 dark:border-none dark:bg-slate-800 dark:text-white dark:hover:bg-slate-700;
   }
 
   .recent-transactions {

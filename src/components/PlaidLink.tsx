@@ -12,11 +12,13 @@ import {
   usePlaidLink,
 } from "react-plaid-link";
 import { Button } from "./ui/button";
+import { Loader2 } from "lucide-react";
 
 const PlaidLink = ({ user, variant }: PlaidLinkProps) => {
   const router = useRouter();
 
   const [token, setToken] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const getLinkToken = async () => {
@@ -35,6 +37,7 @@ const PlaidLink = ({ user, variant }: PlaidLinkProps) => {
         user,
       });
 
+      setLoading(false);
       router.push("/");
     },
     [user, router],
@@ -47,19 +50,32 @@ const PlaidLink = ({ user, variant }: PlaidLinkProps) => {
 
   const { open, ready } = usePlaidLink(config);
 
+  const handleOpen = () => {
+    if (!ready) {
+      return;
+    }
+
+    setLoading(true);
+    open();
+  };
+
   return (
     <>
       {variant === PlaidLinkVariant.PRIMARY ? (
         <Button
-          onClick={() => open()}
+          onClick={handleOpen}
           disabled={!ready}
           className="plaidlink-primary"
         >
-          Connect bank
+          {loading ? (
+            <Loader2 size={24} className="animate-spin" />
+          ) : (
+            "Connect bank"
+          )}
         </Button>
       ) : variant === PlaidLinkVariant.GHOST ? (
         <Button
-          onClick={() => open()}
+          onClick={handleOpen}
           variant="ghost"
           className="plaidlink-ghost"
         >
@@ -74,7 +90,7 @@ const PlaidLink = ({ user, variant }: PlaidLinkProps) => {
           </p>
         </Button>
       ) : (
-        <Button onClick={() => open()} className="plaidlink-default">
+        <Button onClick={handleOpen} className="plaidlink-default">
           <Image
             src="/icons/connect-bank.svg"
             alt="connect bank"

@@ -9,19 +9,13 @@ const Footer = ({ user, type = FooterType.DESKTOP }: FooterProps) => {
   const router = useRouter();
 
   const handleLogout = async () => {
-    const loggedOut = await signOut();
+    await signOut();
 
-    if (loggedOut) {
-      router.push("/sign-in");
-    }
+    router.push("/sign-in");
   };
 
   return (
     <>
-      <div className="flex items-center justify-start space-x-2 max-xl:justify-center max-xl:space-x-0">
-        <p className="text-gray-400 max-xl:hidden">Theme Toggle</p>
-        <ModeToggle />
-      </div>
       <footer className="footer space-x-2 max-xl:justify-center">
         <div
           className={cn(

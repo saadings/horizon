@@ -2,6 +2,7 @@ import HeaderBox from "@/components/HeaderBox";
 import LoadingSkeleton from "@/components/LoadingSkeleton";
 import RecentTransactions from "@/components/RecentTransactions";
 import RightSideBar from "@/components/SideBars/RightSideBar";
+import { ModeToggle } from "@/components/ToggleDarkModeButton";
 import TotalBalanceBox from "@/components/TotalBalanceBox";
 import { HeaderType } from "@/enums/headerBox";
 import { getAccount, getAccounts } from "@/lib/actions/bankActions";
@@ -31,12 +32,16 @@ const Home = async ({ searchParams: { id, page } }: SearchParamProps) => {
     <section className="home">
       <div className="home-content">
         <header className="home-header">
-          <HeaderBox
-            type={HeaderType.GREETING}
-            title="Welcome"
-            user={loggedIn?.firstName || "Guest"}
-            subtext="Access and manage your account and transactions efficiently."
-          />
+          <div className="flex justify-between">
+            <HeaderBox
+              type={HeaderType.GREETING}
+              title="Welcome"
+              user={loggedIn?.firstName || "Guest"}
+              subtext="Access and manage your account and transactions efficiently."
+            />
+
+            <ModeToggle />
+          </div>
 
           <Suspense fallback={<LoadingSkeleton />}>
             <TotalBalanceBox

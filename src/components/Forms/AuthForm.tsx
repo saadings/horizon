@@ -44,8 +44,8 @@ const AuthForm = ({ type }: AuthFormProps) => {
 
   const onSubmit = async (data: z.infer<typeof formSchema>) => {
     // ✅ This will be type-safe and validated.
-    setIsLoading(true);
     try {
+      setIsLoading(true);
       if (type === AuthFormType.SIGN_UP) {
         const userData = {
           email: data.email,
